@@ -2,51 +2,51 @@
 
 A comprehensive, secure, cloud-ready web application for managing event resources, equipment, supplies, and vendor materials with mobile-first design.
 
-## 🌟 Features
+## Features
 
-- **🔐 Secure Authentication**
+- ** Secure Authentication**
   - JWT-based authentication
   - Two-factor authentication (2FA) with TOTP
   - Role-based access control (RBAC)
   - Password hashing with bcrypt
 
-- **📦 Resource Management**
+- ** Resource Management**
   - Complete CRUD operations for resources
   - Inventory tracking
   - Vendor associations
   - Real-time availability monitoring
 
-- **📅 Event Management**
+- ** Event Management**
   - Create and manage events
   - Resource allocation to events
   - Check-in/check-out tracking
   - Event-specific resource usage
 
-- **🏢 Vendor Management**
+- ** Vendor Management**
   - Vendor profiles and contacts
   - Resource-vendor relationships
   - Usage tracking by vendor
 
-- **📊 Reporting & Analytics**
+- ** Reporting & Analytics**
   - Resource usage by event
   - Vendor-based usage reports
   - Inventory availability
   - Usage over time analytics
   - Low stock alerts
 
-- **📱 Mobile-Friendly**
+- ** Mobile-Friendly**
   - Responsive design
   - Touch-optimized interface
   - Mobile-first approach
 
-- **🚀 Production-Ready**
+- ** Production-Ready**
   - HTTPS/TLS support
   - Rate limiting
   - Security headers
   - CORS protection
   - Cloud deployment ready
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Backend
 - **Runtime**: Node.js 18+
@@ -67,13 +67,13 @@ A comprehensive, secure, cloud-ready web application for managing event resource
 - **Charts**: Recharts
 - **2FA QR**: qrcode.react
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js 18+ and npm
 - PostgreSQL 14+
 - Git
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 
@@ -131,9 +131,9 @@ Open your browser and navigate to `http://localhost:3000`
 - **Admin**: `admin@example.com` / `Admin123!`
 - **Manager**: `manager@example.com` / `Manager123!`
 
-⚠️ **IMPORTANT**: Change these credentials in production!
+ **IMPORTANT**: Change these credentials in production!
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 CPTS_427/
@@ -168,7 +168,7 @@ CPTS_427/
 └── README.md
 ```
 
-## 🔐 User Roles & Permissions
+##  User Roles & Permissions
 
 | Role | Permissions |
 |------|-------------|
@@ -218,20 +218,20 @@ CPTS_427/
 - `GET /api/reports/usage/timeline` - Usage over time
 - `GET /api/reports/alerts/low-stock` - Low stock alerts
 
-## 🛡️ Security Features
+##  Security Features
 
-- ✅ HTTPS/TLS enforcement
-- ✅ JWT authentication
-- ✅ TOTP-based 2FA
-- ✅ Password hashing (bcrypt)
-- ✅ Rate limiting on auth endpoints
-- ✅ Helmet security headers
-- ✅ CORS protection
-- ✅ Input validation
-- ✅ SQL injection protection (Prisma)
-- ✅ XSS protection
+-  HTTPS/TLS enforcement
+-  JWT authentication
+-  TOTP-based 2FA
+-  Password hashing (bcrypt)
+-  Rate limiting on auth endpoints
+-  Helmet security headers
+-  CORS protection
+-  Input validation
+-  SQL injection protection (Prisma)
+-  XSS protection
 
-## 🔧 Development
+##  Development
 
 ### Backend Commands
 
@@ -257,7 +257,7 @@ npm start                # Start production server
 npm run lint             # Run ESLint
 ```
 
-## 🚀 Production Deployment
+##  Production Deployment
 
 ### Environment Variables
 
@@ -300,15 +300,7 @@ NEXT_PUBLIC_API_URL=https://your-backend-url.com/api
 3. Run migrations: `npm run prisma:migrate`
 4. Optionally seed: `npx tsx prisma/seed.ts`
 
-## 📱 Mobile Support
-
-The application is fully responsive and optimized for:
-- 📱 Smartphones (iOS/Android)
-- 📱 Tablets
-- 💻 Desktop browsers
-- 🖥️ Large screens
-
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Backend
@@ -319,26 +311,4 @@ npm test
 cd frontend
 npm test
 ```
-
-## 📝 License
-
-ISC
-
-## 👥 Support
-
-For issues or questions, please create an issue in the repository.
-
-## 🎯 Roadmap
-
-- [ ] Email notifications
-- [ ] CSV/Excel export
-- [ ] Advanced search and filters
-- [ ] Calendar integration
-- [ ] Mobile native apps
-- [ ] Barcode/QR code scanning
-- [ ] Resource reservation system
-- [ ] Multi-language support
-
 ---
-
-**Built with ❤️ for efficient event resource management**
