@@ -1,12 +1,20 @@
 import api from './api';
 
+export interface VendorResource {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  totalQuantity: number;
+}
+
 export interface Vendor {
   id: string;
   name: string;
   contactName: string;
   contactEmail: string;
   phone: string;
-  resources?: any[];
+  resources?: VendorResource[];
 }
 
 export interface CreateVendorData {

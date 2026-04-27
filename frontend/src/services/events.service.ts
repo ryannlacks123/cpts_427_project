@@ -1,5 +1,21 @@
 import api from './api';
 
+export interface EventResource {
+  eventId: string;
+  resourceId: string;
+  allocatedQuantity: number;
+  resource: {
+    id: string;
+    name: string;
+    category: string;
+    totalQuantity: number;
+    vendor?: {
+      id: string;
+      name: string;
+    } | null;
+  };
+}
+
 export interface Event {
   id: string;
   name: string;
@@ -13,7 +29,7 @@ export interface Event {
     name: string;
     email: string;
   };
-  resources?: any[];
+  resources?: EventResource[];
 }
 
 export interface CreateEventData {

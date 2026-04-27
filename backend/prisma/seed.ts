@@ -125,53 +125,70 @@ async function seed() {
 
     // Create sample resources
     console.log('Creating sample resources...');
-    await prisma.resource.createMany({
-      data: [
-        {
-          name: 'Folding Chairs',
-          category: 'Furniture',
-          description: 'Standard black folding chairs',
-          vendorId: vendor1.id,
-          totalQuantity: 200,
+    const sampleResources = [
+      {
+        id: '10000000-0000-0000-0000-000000000001',
+        name: 'Folding Chairs',
+        category: 'Furniture',
+        description: 'Standard black folding chairs',
+        vendorId: vendor1.id,
+        totalQuantity: 200,
+      },
+      {
+        id: '10000000-0000-0000-0000-000000000002',
+        name: 'Round Tables (6ft)',
+        category: 'Furniture',
+        description: '6-foot round tables with white tablecloths',
+        vendorId: vendor1.id,
+        totalQuantity: 50,
+      },
+      {
+        id: '10000000-0000-0000-0000-000000000003',
+        name: 'Sound System',
+        category: 'Audio/Visual',
+        description: 'Professional PA system with microphones',
+        vendorId: vendor1.id,
+        totalQuantity: 5,
+      },
+      {
+        id: '10000000-0000-0000-0000-000000000004',
+        name: 'Projector & Screen',
+        category: 'Audio/Visual',
+        description: 'HD projector with 10ft screen',
+        vendorId: vendor1.id,
+        totalQuantity: 3,
+      },
+      {
+        id: '10000000-0000-0000-0000-000000000005',
+        name: 'Party Tent (20x20)',
+        category: 'Outdoor',
+        description: 'Weather-resistant party tent',
+        vendorId: vendor2.id,
+        totalQuantity: 10,
+      },
+      {
+        id: '10000000-0000-0000-0000-000000000006',
+        name: 'Catering Supplies Kit',
+        category: 'Catering',
+        description: 'Includes plates, utensils, napkins for 100 guests',
+        vendorId: vendor2.id,
+        totalQuantity: 20,
+      },
+    ];
+
+    for (const resource of sampleResources) {
+      await prisma.resource.upsert({
+        where: { id: resource.id },
+        update: {
+          name: resource.name,
+          category: resource.category,
+          description: resource.description,
+          vendorId: resource.vendorId,
+          totalQuantity: resource.totalQuantity,
         },
-        {
-          name: 'Round Tables (6ft)',
-          category: 'Furniture',
-          description: '6-foot round tables with white tablecloths',
-          vendorId: vendor1.id,
-          totalQuantity: 50,
-        },
-        {
-          name: 'Sound System',
-          category: 'Audio/Visual',
-          description: 'Professional PA system with microphones',
-          vendorId: vendor1.id,
-          totalQuantity: 5,
-        },
-        {
-          name: 'Projector & Screen',
-          category: 'Audio/Visual',
-          description: 'HD projector with 10ft screen',
-          vendorId: vendor1.id,
-          totalQuantity: 3,
-        },
-        {
-          name: 'Party Tent (20x20)',
-          category: 'Outdoor',
-          description: 'Weather-resistant party tent',
-          vendorId: vendor2.id,
-          totalQuantity: 10,
-        },
-        {
-          name: 'Catering Supplies Kit',
-          category: 'Catering',
-          description: 'Includes plates, utensils, napkins for 100 guests',
-          vendorId: vendor2.id,
-          totalQuantity: 20,
-        },
-      ],
-      skipDuplicates: true,
-    });
+        create: resource,
+      });
+    }
     console.log('✅ Sample resources created');
 
     console.log('');

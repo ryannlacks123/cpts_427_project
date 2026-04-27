@@ -74,6 +74,21 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+app.get('/api', (req, res) => {
+  res.json({
+    name: 'Event Resource Management API',
+    status: 'ok',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      events: '/api/events',
+      vendors: '/api/vendors',
+      resources: '/api/resources',
+      reports: '/api/reports',
+    },
+  });
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
