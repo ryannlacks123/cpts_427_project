@@ -2,6 +2,63 @@
 
 A comprehensive, secure, cloud-ready web application for managing event resources, equipment, supplies, and vendor materials with mobile-first design.
 
+## Project Overview and Goals
+
+This project was built to solve a common operations problem for event teams: information about events, inventory, vendors, and resource usage is often spread across spreadsheets, emails, and ad hoc notes. The Event Resource Management System brings those workflows into a single full-stack application so teams can plan events, track inventory, coordinate with vendors, and review operational data from one place.
+
+The main goals of the project were:
+
+- Centralize event, resource, and vendor data in one system.
+- Improve security with authenticated access, role-based permissions, and optional two-factor authentication.
+- Support day-to-day operational workflows such as resource allocation, usage logging, and low-stock monitoring.
+- Provide reporting views that help users make decisions from current inventory and usage data.
+- Deliver a responsive interface that remains usable on desktops, laptops, and mobile devices.
+
+## Themes Used
+
+The system was designed around five major themes that shape both the frontend and backend implementation.
+
+### 1. Security and Trust
+
+Security is a core theme of the project rather than an afterthought. The backend uses JWT-based authentication, password hashing, rate limiting, security headers, and TOTP-based two-factor authentication. Role-based access control also ensures that users only see or modify data that matches their responsibilities.
+
+### 2. Operational Workflow Management
+
+The second theme is support for real event operations. Instead of treating events, resources, and vendors as separate disconnected records, the application links them together so teams can create events, assign resources, monitor usage, and keep inventory aligned with actual event activity.
+
+### 3. Reporting and Visibility
+
+Another theme is actionable visibility. The dashboard and reports emphasize totals, usage trends, inventory availability, vendor usage, and low-stock alerts. This helps users move beyond simple data entry and use the system for planning and oversight.
+
+### 4. Responsive, Mobile-Friendly Access
+
+Because event work often happens away from a desk, the project uses a mobile-first responsive interface. The frontend layout, card-based views, and touch-friendly controls were chosen so staff and managers can still use the system effectively on smaller screens.
+
+### 5. Full-Stack Maintainability
+
+The final theme is maintainability. TypeScript is used on both the frontend and backend, Prisma provides a clear data-access layer, and the project is split into focused modules for auth, events, resources, vendors, and reports. That structure keeps the code easier to extend and debug.
+
+## Design Decisions and Trade-Offs
+
+Several design decisions were made to balance implementation time, security, and long-term maintainability.
+
+- **Next.js for the frontend and Express for the backend:** This separation keeps UI concerns and API concerns cleanly isolated. The trade-off is a little more setup and coordination than a single monolithic framework, but it gives clearer boundaries and makes each layer easier to reason about.
+- **TypeScript across the stack:** Using TypeScript improves consistency and reduces integration mistakes between frontend models and backend payloads. The trade-off is slightly slower initial development because interfaces and types need to be maintained.
+- **Prisma with PostgreSQL:** Prisma simplifies schema management, migrations, and database access while PostgreSQL provides a reliable relational model for structured operational data. The trade-off is less low-level query flexibility than hand-written SQL in some cases, but much better development speed and safety.
+- **JWT authentication with optional 2FA:** JWT supports stateless authentication that fits well with an API-first architecture, while 2FA strengthens account security. The trade-off is added implementation and user-flow complexity, especially during onboarding and profile management.
+- **Role-based access control:** RBAC fits the domain because admins, managers, staff, and viewers each need different levels of access. The trade-off is more middleware, more testing surface, and more care required when exposing routes and UI actions.
+- **Simple, functional UI styling with Tailwind CSS:** Tailwind made it practical to build a consistent interface quickly with reusable utility classes and shared component styles. The trade-off is that the visual design is intentionally more utilitarian than highly customized.
+
+## Challenges Encountered and Lessons Learned
+
+One recurring challenge in this project was coordinating multiple concerns across the stack at the same time. Authentication, role checks, API contracts, database schema updates, and frontend pages all depend on one another, so a change in one layer often required adjustments in several others. That made clear documentation, shared types, and predictable module boundaries much more valuable than they first appeared.
+
+Another challenge was balancing security with usability. Features like JWT authentication, 2FA, and RBAC are important, but each one adds friction to implementation and testing. The project reinforced the lesson that secure systems need to be designed into the workflow early; adding them later is more expensive and risks inconsistent behavior.
+
+The project also highlighted the importance of building around realistic user tasks instead of isolated CRUD pages. Events, resources, vendors, and reports are more useful when they are connected by actual workflows such as allocation, usage tracking, and low-stock alerts. That pushed the design toward a more integrated system and away from a collection of unrelated forms.
+
+The main lesson learned was that a maintainable full-stack project benefits from strong separation of concerns and iterative delivery. Keeping auth, business logic, reporting, and UI structure modular made the codebase easier to expand, while building core functionality first made it easier to add reporting, security, and polish afterward.
+
 ## Features
 
 - ** Secure Authentication**
